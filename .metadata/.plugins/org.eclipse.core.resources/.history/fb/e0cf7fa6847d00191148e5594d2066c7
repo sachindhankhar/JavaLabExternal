@@ -1,0 +1,66 @@
+package q3;
+
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class MainClass {
+	public static void main(String[] args) {
+		JFrame jf= new JFrame("Form");
+		
+		JPanel p1=new JPanel();
+		JPanel p2=new JPanel();
+		
+		JLabel l1=new JLabel("Insert into Representative Table-->");
+		JLabel l2=new JLabel("RepNo.");
+		JLabel l3=new JLabel("RepName");
+		JButton b1=new JButton("Insert");
+		JTextField t1=new JTextField(5);
+		JTextField t2=new JTextField(5);
+		
+		p1.setLayout(new FlowLayout());
+		p1.add(l1);
+		p1.add(l2);
+		p1.add(t1);
+		p1.add(l3);
+		p1.add(t2);
+		p1.add(b1);
+		
+		JLabel l11=new JLabel("Insert into Customer Table-->");
+		JLabel l12=new JLabel("CustNo.");
+		JLabel l13=new JLabel("CustomerName");
+		JLabel l14=new JLabel("Credit_Limit");
+		JLabel l15=new JLabel("RepNo.");
+		JButton b2=new JButton("Insert");
+		JTextField t11=new JTextField(5);
+		JTextField t12=new JTextField(5);
+		JTextField t13=new JTextField(5);
+		JTextField t14=new JTextField(5);
+		
+		p2.setLayout(new FlowLayout());
+		p2.add(l11);
+		p2.add(l12);
+		p2.add(t11);
+		p2.add(l13);
+		p2.add(t12);
+		p2.add(l14);
+		p2.add(t13);
+		p2.add(l15);
+		p2.add(t14);
+		p2.add(b2);
+		
+		
+		jf.setLayout(new CardLayout());
+		jf.add(p1);
+		jf.add(p2);
+		jf.setSize(300,250);
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+}

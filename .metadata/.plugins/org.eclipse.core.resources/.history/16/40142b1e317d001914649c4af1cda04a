@@ -1,0 +1,13 @@
+package q1_telDir;
+
+import java.util.LinkedHashMap;
+
+public class IncomingCalls {
+	LinkedHashMap<Integer,String> missed=new LinkedHashMap<Integer,String>(10);
+	public void giveCall(Integer num, String timeOfCall) {
+		missed.put(num,timeOfCall);
+	}
+	public void displayMissedCalls() {
+		System.out.println(missed);
+	}
+}

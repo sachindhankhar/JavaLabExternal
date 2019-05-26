@@ -1,0 +1,70 @@
+package q4;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+public class MainClass {
+	JFrame jf;
+	JLabel lb1,lb2,lb3,lb4;
+	JRadioButton b1,b2,b3;
+	JPanel p;
+	
+	public static void main(String[] args) {
+		MainClass mc=new MainClass();
+		mc.setComponents();
+	}
+	void setComponents() {
+		jf=new JFrame("Traffic Light");
+		lb1=new JLabel("Red");
+		lb2=new JLabel("Yellow");
+		lb3=new JLabel("Green");
+		lb4=new JLabel();
+		b1=new JRadioButton();
+		b2=new JRadioButton();
+		b3=new JRadioButton();
+		ButtonGroup bg= new ButtonGroup();
+		bg.add(b1);
+		bg.add(b2);
+		bg.add(b3);
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lb4.setText("Stop");
+				lb4.setForeground(Color.RED);
+			}
+		});
+		b2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lb4.setText("Ready");
+				lb4.setForeground(Color.YELLOW);
+			}
+		});
+		b3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lb4.setText("Go");
+				lb4.setForeground(Color.GREEN);
+			}
+		});
+		p=new JPanel();
+		p.add(lb1);
+		p.add(b1);
+		p.add(lb2);
+		p.add(b2);
+		p.add(lb3);
+		p.add(b3);
+		p.setLayout(new GridLayout(3,2));
+		jf.add(lb4);
+		jf.add(p);
+		jf.setLayout(new GridLayout(2,1));
+		jf.setSize(250,200);
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

@@ -1,0 +1,43 @@
+package q7;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Tshirts")
+public abstract class Tshirts extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public void service(HttpServletRequest req,HttpServletResponse res) {
+		String[] acc=req.getParameterValues("acc");
+		String tagline=req.getParameter("tagline");
+		String pocket=req.getParameter("pocket");
+		String color=req.getParameter("color");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url="jdbc:mysql://localhost:3306/examprac";
+			Connection con=DriverManager.getConnection(url,"root","");
+			PreparedStatement ps=con.prepareStatement("select orderno from tshirts");
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()) {
+				
+			}else {
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

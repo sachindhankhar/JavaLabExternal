@@ -1,0 +1,11 @@
+package q9;
+
+import java.util.HashMap;
+
+public class Digits implements Runnable{
+	HashMap<Integer,String> hm= new HashMap<>();
+	
+	public void run() {
+		
+	}
+}

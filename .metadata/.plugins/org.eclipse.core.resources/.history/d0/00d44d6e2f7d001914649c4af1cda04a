@@ -1,0 +1,8 @@
+package q1_telDir;
+
+import java.util.HashMap;
+
+public class PhoneDir {
+	HashMap<Integer,String> dir= new HashMap<Integer,String>();
+	
+}

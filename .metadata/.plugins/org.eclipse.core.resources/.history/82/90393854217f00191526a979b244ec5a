@@ -1,0 +1,10 @@
+package q9;
+
+public class MainClass{
+	public static void main(String[] args) {
+		//Thread t1= new Thread(new Digits());
+		Thread t2= new Thread(new Vowels());
+		//t1.start();
+		t2.start();
+	}
+}

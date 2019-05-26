@@ -1,0 +1,48 @@
+package q5;
+
+import java.awt.GridLayout;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+
+public class MainClass {
+	JFrame jf;
+	JProgressBar pb;
+	JButton jb;
+	JTextArea jt;
+	public static void main(String[] args) throws IOException, InterruptedException {
+		MainClass mc= new MainClass();
+		mc.setComponents();
+		FileWriter fw=new FileWriter("file2.txt");
+		FileReader fr=new FileReader("file1.txt");
+		int ch,i=0;
+		while((ch=fr.read())!=-1) {
+			fw.write(ch);
+			mc.pb.setValue(i+1);
+			i+=1;
+			Thread.sleep(1000);
+		}
+		fw.close();
+		fr.close();
+	}
+	public void setComponents() {
+		jf=new JFrame("ProgressBar_FileCopy");
+		pb=new JProgressBar();
+		pb.setValue(0);
+		jb=new JButton("Stop");
+		jt=new JTextArea(50,50);
+		pb.setStringPainted(true);
+		jf.add(pb);
+		jf.add(jb);
+		jf.add(jt);
+		jf.setLayout(new GridLayout(3,1));
+		jf.setVisible(true);
+		jf.setSize(300,250);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

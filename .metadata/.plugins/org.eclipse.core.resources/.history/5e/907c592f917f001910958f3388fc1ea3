@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>T-shirt</title>
+</head>
+<body bgcolor="yellow"><br><br><br>
+	<div align="center">
+	
+	<form action="">
+	
+		T-Shirt Accessories:Belt:<input type="checkbox" name="acc" value="belt">
+		Cap:<input type="checkbox" name="acc" value="cap">
+		HairBand:<input type="checkbox" name="acc" value="HairBand">
+		<br><br>
+		T-Shirt Tag line:<input type="text" name="tagline"><br><br>
+	</form>
+	
+	
+	</div>
+</body>
+</html>

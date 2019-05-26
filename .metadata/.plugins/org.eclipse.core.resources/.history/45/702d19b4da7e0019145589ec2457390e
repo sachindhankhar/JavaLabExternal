@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>ViewDetails</title>
+</head>
+<body bgcolor="orange">
+<br><br><br>
+	<div align="center">
+		<%
+			
+			String fno=request.getParameter("fno");
+			String date=request.getParameter("date");
+			String sno=request.getParameter("sno");
+			String name=request.getParameter("name");
+			String pno=request.getParameter("pno");
+		
+		
+		
+		%>
+	</div>
+</body>
+</html>

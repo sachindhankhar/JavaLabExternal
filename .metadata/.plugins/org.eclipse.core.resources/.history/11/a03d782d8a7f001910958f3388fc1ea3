@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TaxDeduction</title>
+</head>
+<body bgcolor="yellow"><br><br><br>
+	<div align="center">
+	
+	<form action="TaxCalculate">
+	
+	Enter Name:<input type="text" name="name"><br><br>
+	Enter Salary:<input type="text" name="salary"><br><br>
+	Enter Tax Amount:<input type="text" name="tax"><br><br>
+	<input type="submit">
+	
+	</form>
+	
+	</div>
+</body>
+</html>

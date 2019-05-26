@@ -1,0 +1,38 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.util.HashMap"%>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body bgcolor="orange">
+<%
+	String username=request.getParameter("username");
+	String password=request.getParameter("password");
+	
+	HashMap<String,String> hm=new HashMap<>();
+	hm.put("sabya","sabya");
+	hm.put("sanchit","sanchit");
+	hm.put("rishikesh","rishikesh");
+	hm.put("piyush","piyush");
+	
+	if(hm.containsKey(username) && hm.get(username).equals(password)){
+		
+		out.println("Hello "+username);
+		Date date= new Date();
+		out.println(date);
+%>
+	<div align="center">
+	<% 
+	
+	
+	
+	%>
+	</div>
+	<% 	
+	}else{
+		out.println("Wrong credentials!");
+	}%>
+	<a href="login.html">Login Again</a>
+	
+</body>
+</html>

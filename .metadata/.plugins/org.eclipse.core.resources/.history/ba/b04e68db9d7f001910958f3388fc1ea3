@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TelephoneDirectory</title>
+</head>
+<body bgcolor="yellow"><br><br><br>
+	<div align="center">
+	
+	<form action="Telephone">
+	Name:<input type="text" name="name"><br><br>
+	Phone no.<input type="text" name="phone"><br><br>
+	<input type="submit" value="search">
+	</form>
+	
+	</div>
+</body>
+</html>

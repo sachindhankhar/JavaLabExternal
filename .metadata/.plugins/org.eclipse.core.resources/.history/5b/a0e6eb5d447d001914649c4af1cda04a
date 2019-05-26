@@ -1,0 +1,43 @@
+package q1_telDir;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MainClass {
+	public static void main(String []args) {
+		PhoneDir pd= new PhoneDir();
+		pd.saveNewNumber(11,"sanchit");
+		pd.saveNewNumber(12,"rishikesh");
+		pd.saveNewNumber(13,"piyush");
+		
+		IncomingCalls ic=new IncomingCalls();
+		ic.giveCall(12,"1900");
+		ic.giveCall(15,"1300");
+		ic.giveCall(13,"1650");
+		ic.giveCall(17,"0930");
+		
+		Scanner sc =new Scanner(System.in);
+		
+		Iterator<Map.Entry<Integer,String>> itr=ic.entrySet.iterator();
+		while(itr.hasNext()) {
+			System.out.println("Enter 1 to delete the call, 2 to go to next missed call ,3 to display call details");
+			int ch=sc.nextInt();
+			Map<K, V>.Entry<Integer, String> entry = itr.next();
+			System.out.println("Mobile Number-->"+entry.getKey());
+			switch(ch) {
+			case 1: ic.deleteCall(entry.getKey());
+					break;
+			case 3: ic.displayDetails(pd,entry.getKey());
+					break;
+			case 2: // do nothing
+					break;
+			default: break;
+			}
+		}
+		
+		
+		
+		sc.close();
+	}
+}

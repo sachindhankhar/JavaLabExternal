@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>login</title>
+</head>
+<body bgcolor="yellow"><br><br><br>
+<div align="center">
+	<form action="dataCpture.jsp">
+	
+	
+	</form>
+</div>
+</body>
+</html>

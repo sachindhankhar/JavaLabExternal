@@ -1,0 +1,33 @@
+package q5;
+
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+
+public class MainClass {
+	JFrame jf;
+	JProgressBar pb;
+	JButton jb;
+	JTextArea jt;
+	public static void main(String[] args) {
+		MainClass mc= new MainClass();
+		mc.setComponents();
+	}
+	public void setComponents() {
+		jf=new JFrame("ProgressBar_FileCopy");
+		pb=new JProgressBar();
+		jb=new JButton("Stop");
+		jt=new JTextArea(50,50);
+		
+		jf.add(pb);
+		jf.add(jb);
+		jf.add(jt);
+		jf.setLayout(new GridLayout(3,2));
+		jf.setVisible(true);
+		jf.setSize(300,250);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

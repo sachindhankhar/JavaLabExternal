@@ -1,0 +1,20 @@
+package q3;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class BackEnd implements ActionListener{
+	String t1,t2,t3,t4,t5;
+	BackEnd(String t1, String t2){
+		this.t1=t1;
+		this.t2=t2;
+	}
+	BackEnd(String t3,String t4,String t5){
+		this.t3=t3;
+		this.t4=t4;
+		this.t5=t5;
+	}
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+}

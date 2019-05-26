@@ -1,0 +1,38 @@
+package q9;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Scanner;
+
+public class Vowels implements Runnable{
+	ArrayList<String> al= new ArrayList<>();
+	int count=0;
+	String word;
+	Vowels(){
+		al.add("a");
+		al.add("e");
+		al.add("i");
+		al.add("o");
+		al.add("u");
+	}
+	public void run() {
+		Scanner sc =new Scanner(System.in);
+		synchronize(Scanner sc){
+			System.out.println("Enter a word");
+			this.word=sc.next();
+			sc.close();
+		}
+		
+		word="sachin";
+		for(int i=0;i<word.length();++i) {
+			if(al.contains(String.valueOf(word.charAt(i)))) {
+				this.count++;
+			}
+		}
+		System.out.println("Number of vowels in "+word+" is: "+this.count);
+	}
+	private void synchronize() {
+		// TODO Auto-generated method stub
+		
+	}
+}

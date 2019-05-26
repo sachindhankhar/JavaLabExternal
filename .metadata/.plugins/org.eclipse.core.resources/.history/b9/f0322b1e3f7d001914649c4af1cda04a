@@ -1,0 +1,7 @@
+package q1_telDir;
+
+public class MainClass {
+	public static void main(String []args) {
+		
+	}
+}

@@ -1,0 +1,16 @@
+package q1_telDir;
+
+import java.util.LinkedHashMap;
+
+
+public class IncomingCalls {
+	LinkedHashMap<Integer,String> missed=new LinkedHashMap<Integer,String>();
+	public void giveCall(Integer num, String timeOfCall) {
+		missed.put(num,timeOfCall);
+	}
+	public void displayDetails(Integer num) {
+		if(PhoneDir.giveDirectory().containsKey(num)) {
+			
+		}
+	}
+}

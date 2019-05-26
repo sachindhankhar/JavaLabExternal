@@ -1,0 +1,32 @@
+package q6;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/CalculateTax")
+public class CalculateTax extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException {
+		String name=req.getParameter("name");
+		Double salary=Double.parseDouble(req.getParameter("name"));
+		Double tax=Double.parseDouble(req.getParameter("name"));
+		BufferedWriter wr=new BufferedWriter(new FileWriter("file1.txt"));
+		wr.write("Name: "+name);
+		wr.write("Original Salary: "+salary);
+		wr.write("Tax Deducted"+tax);
+		wr.write("Final Amount:"+(salary-tax));
+		
+		wr.close();
+	}
+
+}

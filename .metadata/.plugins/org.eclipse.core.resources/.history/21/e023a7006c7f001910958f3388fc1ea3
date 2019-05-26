@@ -1,0 +1,41 @@
+package q4;
+
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
+//import q3.MainClass;
+
+public class MainClass {
+	JFrame jf;
+	JLabel lb1,lb2,lb3,lb4;
+	JRadioButton b1,b2,b3;
+	
+	public static void main(String[] args) {
+		MainClass mc=new MainClass();
+		mc.setComponents();
+	}
+	void setComponents() {
+		jf=new JFrame("Traffic Light");
+		lb1=new JLabel("Red");
+		lb2=new JLabel("Yellow");
+		lb3=new JLabel("Green");
+		b1=new JRadioButton();
+		b2=new JRadioButton();
+		b3=new JRadioButton();
+		
+		
+		jf.add(lb1);
+		jf.add(b1);
+		jf.add(lb2);
+		jf.add(b2);
+		jf.add(lb3);
+		jf.add(b3);
+		jf.setLayout(new GridLayout(3,2));
+		jf.setSize(300,250);
+		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

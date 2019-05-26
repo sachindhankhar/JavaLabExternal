@@ -1,0 +1,61 @@
+package q5;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+
+public class MainClass implements ActionListener{
+	JFrame jf;
+	JProgressBar pb;
+	JButton jb;
+	JTextArea jt;
+	int stop=0;
+	public static void main(String[] args) throws IOException, InterruptedException {
+		MainClass mc= new MainClass();
+		mc.setComponents();
+		FileWriter fw=new FileWriter("file2.txt");
+		FileReader fr=new FileReader("file1.txt");
+		int ch,i=0;
+		String s="";
+		while((ch=fr.read())!=-1) {
+			fw.write(ch);
+			mc.pb.setValue(i+1);
+			i+=5;
+			s=s.concat(Integer.toString(ch));
+			Thread.sleep(1000);
+			if(mc.stop==1) {
+				break;
+			}
+		}
+		mc.jt.setText(s);
+		fw.close();
+		fr.close();
+	}
+	public void setComponents() {
+		jf=new JFrame("ProgressBar_FileCopy");
+		pb=new JProgressBar();
+		pb.setValue(0);
+		jb=new JButton("Stop");
+		jb.addActionListener(this);
+		jt=new JTextArea(50,50);
+		pb.setStringPainted(true);
+		jf.add(pb);
+		jf.add(jb);
+		jf.add(jt);
+		jf.setLayout(new GridLayout(3,1));
+		jf.setVisible(true);
+		jf.setSize(300,250);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent e) {
+		this.stop=1;
+	}
+}

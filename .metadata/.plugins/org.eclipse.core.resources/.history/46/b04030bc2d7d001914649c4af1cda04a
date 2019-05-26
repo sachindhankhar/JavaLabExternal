@@ -1,0 +1,9 @@
+package q1_telDir;
+
+public class MainClass {
+	public static void main(String []args) {
+		IncomingCalls ic=new IncomingCalls();
+		ic.giveCall(123,"1300");
+		ic.giveCall(345,"1600");
+	}
+}

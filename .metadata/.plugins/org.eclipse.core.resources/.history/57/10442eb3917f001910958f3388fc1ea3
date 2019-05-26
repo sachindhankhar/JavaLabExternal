@@ -1,0 +1,5 @@
+package q7;
+
+public abstract class Tshirts {
+
+}

@@ -1,0 +1,54 @@
+package q3;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class BackEnd implements ActionListener{
+	String t1,t2,t3,t4,t6;
+	int t5;
+	int flg=0;
+	BackEnd(String t1, String t2){
+		this.t1=t1;
+		this.t2=t2;
+		this.flg=1;
+		System.out.println(this.t1));
+	}
+	BackEnd(String t3,String t4,int t5,String t6){
+		this.t3=t3;
+		this.t4=t4;
+		this.t5=t5;
+		this.t6=t6;
+		this.flg=2;
+	}
+	public void actionPerformed(ActionEvent e) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url= "jdbc:mysql://localhost:3306/examprac";
+			Connection con=DriverManager.getConnection(url,"root","");
+			if(flg==1) {
+				String q1="insert into Representative values(?,?)";
+				PreparedStatement ps=con.prepareStatement(q1);
+				ps.setString(1,t1);
+				ps.setString(2,t2);
+				ps.executeUpdate();
+			}
+			if(flg==2) {
+				String q2="insert into Customer values(?,?,?,?)";
+				PreparedStatement ps=con.prepareStatement(q2);
+				ps.setString(1,t3);
+				ps.setString(2,t4);
+				ps.setInt(3,t5);
+				ps.setString(4,t6);
+				ps.executeUpdate();
+			}
+			con.close();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	}
+}

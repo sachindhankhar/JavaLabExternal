@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Tax Calculation</title>
+</head>
+<body>
+	<%
+	
+		String name=request.getParameter("name");
+		String org=request.getParameter("org");
+		String gender=request.getParameter("gender");
+		double income=Double.parseDouble(request.getParameter(income));
+	
+	%>
+</body>
+</html>

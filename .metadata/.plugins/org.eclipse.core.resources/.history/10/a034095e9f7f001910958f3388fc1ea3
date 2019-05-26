@@ -1,0 +1,27 @@
+package q8;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Telephone")
+public class Telephone extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3L;
+	public void service(HttpServletRequest req,HttpServletResponse res) {
+		String name=req.getParameter("name");
+		String phone=req.getParameter("phone");
+		String city=req.getParameter("city");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,57 @@
+package q7;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Tshirts")
+public class Tshirts extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 102831973239L;
+	@Override
+	public void service(HttpServletRequest req,HttpServletResponse res) {
+		String[] acc=req.getParameterValues("acc");
+		String accFinal=acc.toString();
+		String tagline=req.getParameter("tagline");
+		System.out.println("hello"+accFinal.toString());
+		String pocket=req.getParameter("pocket");
+		String color=req.getParameter("color");
+		Integer orderno=0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url="jdbc:mysql://localhost:3306/examprac";
+			Connection con=DriverManager.getConnection(url,"root","");
+			PreparedStatement ps=con.prepareStatement("select orderno from tshirts");
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				orderno=rs.getInt("orderno");
+			}
+			if(orderno.equals(0)) {
+				orderno=100;
+			}else {
+				orderno+=1;
+			}
+			ps=con.prepareStatement("insert into tshirts values(?,?,?,?,?)");
+			ps.setInt(1,orderno);
+			ps.setString(2,accFinal);
+			ps.setString(3,tagline);
+			ps.setString(4,pocket);
+			ps.setString(5,color);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}
