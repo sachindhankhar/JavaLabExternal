@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <html>
 <head>
 <title>T-shirt</title>
@@ -22,15 +23,18 @@
 		<input type="submit" value="Click Me">
 	</form>
 	<br><br>
-	<table border="1">
-	<tr><th>OrderNo.</th><th>Accessories</th><th>TagLine</th>
-	<th>ChestPocket</th><th>Color</th></tr>
-	<tr><td><%= String.valueOf(session.getAttribute("orderno"))%></td>
-	<td><%= String.valueOf(session.getAttribute("acc")) %></td>
-	<td><%= String.valueOf(session.getAttribute("tagline")) %></td>
-	<td><%= String.valueOf(session.getAttribute("pocket")) %></td>
-	<td><%= String.valueOf(session.getAttribute("color")) %></td>
-	</tr></table><% session.invalidate(); %>
+	<table border="1"><tr><th>OrderNo</th>
+	<th>Accessories</th><th>Tagline</th><th>ChestPocket</th>
+	<th>Color</th></tr>
+	<%if(null!=session.getAttribute("tshirts")){
+	ResultSet rs=(ResultSet)session.getAttribute("tshirts");
+	
+	while(rs.next()){
+	%><tr><td><%= rs.getInt("orderno")%></td><td><%= rs.getString("acc")%></td>
+	<td><%= rs.getString("tagline")%></td><td><%= rs.getString("pocket")%></td>
+	<td><%= rs.getString("color")%></td></tr>
+	<%}}%>
+	</table>
 	</div>
 </body>
 </html>
