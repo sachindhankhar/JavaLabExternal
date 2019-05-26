@@ -53,15 +53,14 @@ public class Tshirts extends HttpServlet{
 			ps.setString(5,color);
 			ps.executeUpdate();
 			
+			
+			ps=con.prepareStatement("select * from tshirts");
+			rs=ps.executeQuery();
 			HttpSession session=req.getSession();
-			session.setAttribute("orderno",orderno);
-			session.setAttribute("acc",accFinal);
-			session.setAttribute("tagline",tagline);
-			session.setAttribute("pocket",pocket);
-			session.setAttribute("color",color);
-			//res.sendRedirect("index.jsp");
+			session.setAttribute("tshirts",rs);
 			RequestDispatcher rd=req.getRequestDispatcher("index.jsp");
 			rd.forward(req,res);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
